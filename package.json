@@ -27,7 +27,8 @@
   },
   "proxy": "http://localhost:3000/",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "nodemon node.js",
+    "start2": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
   },
