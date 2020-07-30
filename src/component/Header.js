@@ -5,6 +5,7 @@ import {AppContext} from '../component/AppContext';
 function Header() {
     var [isDropdownOpen,setDropdown] = useState(false);
     var userdata=useContext(AppContext).userdata;
+    var isLoggedIn=userdata!=null? true : false;
     var tryLogout=useContext(AppContext).tryLogout;
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -15,7 +16,7 @@ function Header() {
     });
     useEffect(()=>{
         if(userdata!=null)
-        document.getElementById("btnLogout").addEventListener("click", tryLogout);
+        {document.getElementById("btnLogout").addEventListener("click", tryLogout);}
     })
     return (
     <div className="app-header header-shadow bg-arielle-smile header-text-light">
@@ -353,9 +354,9 @@ function Header() {
                 </div>
                 <div className="header-btn-lg pr-0">
                     <div className="widget-content p-0">
-                    {
-                        userdata!=null &&
-                        <div className="widget-content-wrapper" style={{cursor: 'pointer'}} data-toggle="dropdown">{console.log(userdata)}
+                    {   // isLogin
+                        isLoggedIn &&
+                        <div className="widget-content-wrapper" style={{cursor: 'pointer'}} data-toggle="dropdown">
                             <div className="widget-content-left">
                                 <a aria-haspopup="true" aria-expanded="false" className="p-0 btn">
                                     <img width="42" className="rounded-circle" src="assets/images/avatars/1.jpg" alt=""/>
@@ -369,13 +370,13 @@ function Header() {
                                                 <div className="widget-content p-0">
                                                     <div className="widget-content-wrapper">
                                                         <div className="widget-content-left mr-3">
-                                                            <img width="42" className="rounded-circle" src="assets/images/avatars/1.jpg" alt=""/>
+                                                            <img width="62" className="rounded-circle" src="assets/images/avatars/1.jpg" alt=""/>
                                                         </div>
                                                         <div className="widget-content-left">
-                                                            <div className="widget-heading">{userdata.profile.firstname} {userdata.profile.lastname}</div>
-                                                            <div className="widget-subheading opacity-8">{ userdata.profile.role.map((role)=>{
+                                                            <div className="widget-heading"><center>{userdata.profile.firstname} {userdata.profile.lastname}</center></div>
+                                                            <div className="widget-subheading opacity-8"><center>{userdata.profile.role.map((role)=>{
                                                                   return role +" ";
-                                                                })}</div>
+                                                                })}</center></div>
                                                         </div>
                                                         <div className="widget-content-right mr-2">
                                                             <div id="btnLogout"><button className="btn-pill btn-shadow btn-shine btn btn-focus">Logout</button></div>
@@ -444,17 +445,13 @@ function Header() {
                             </div>
                             <div className="widget-content-left  ml-3 header-user-info">
                                 <div className="widget-heading">{userdata.profile.firstname} {userdata.profile.lastname}</div>
-                                <div className="widget-subheading"> VP People Manager </div>
-                            </div>
-                            <div className="widget-content-right header-user-info ml-3">
-                                <button type="button" className="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
-                                    <i className="fa text-white fa-calendar pr-1 pl-1"></i>
-                                </button>
+                                <div className="widget-subheading">
+                                <center>{userdata.profile.role.map((role)=>{return role +" ";})}</center></div>
                             </div>
                         </div>
                     }
                     {
-                        userdata==null &&
+                        !isLoggedIn &&
                         <div className="header-dots">
                             <div className="dropdown">
                                 <button data-toggle="modal" title="Sign In" data-target="#loginModal" type="button" aria-haspopup="true" aria-expanded="false" className="p-0 btn dd-chart-btn">
