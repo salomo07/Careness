@@ -355,7 +355,7 @@ function Header() {
                     <div className="widget-content p-0">
                     {
                         userdata!=null &&
-                        <div className="widget-content-wrapper" style={{cursor: 'pointer'}} data-toggle="dropdown">
+                        <div className="widget-content-wrapper" style={{cursor: 'pointer'}} data-toggle="dropdown">{console.log(userdata)}
                             <div className="widget-content-left">
                                 <a aria-haspopup="true" aria-expanded="false" className="p-0 btn">
                                     <img width="42" className="rounded-circle" src="assets/images/avatars/1.jpg" alt=""/>
@@ -372,8 +372,10 @@ function Header() {
                                                             <img width="42" className="rounded-circle" src="assets/images/avatars/1.jpg" alt=""/>
                                                         </div>
                                                         <div className="widget-content-left">
-                                                            <div className="widget-heading">Alina Mcloughlin</div>
-                                                            <div className="widget-subheading opacity-8">A short profile description</div>
+                                                            <div className="widget-heading">{userdata.profile.firstname} {userdata.profile.lastname}</div>
+                                                            <div className="widget-subheading opacity-8">{ userdata.profile.role.map((role)=>{
+                                                                  return role +" ";
+                                                                })}</div>
                                                         </div>
                                                         <div className="widget-content-right mr-2">
                                                             <div id="btnLogout"><button className="btn-pill btn-shadow btn-shine btn btn-focus">Logout</button></div>
@@ -441,7 +443,7 @@ function Header() {
                                 </div>
                             </div>
                             <div className="widget-content-left  ml-3 header-user-info">
-                                <div className="widget-heading"> Alina Mclourd </div>
+                                <div className="widget-heading">{userdata.profile.firstname} {userdata.profile.lastname}</div>
                                 <div className="widget-subheading"> VP People Manager </div>
                             </div>
                             <div className="widget-content-right header-user-info ml-3">
