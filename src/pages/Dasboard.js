@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 
 import {AppContext} from '../component/AppContext';
 
-import {toast} from 'react-toastify';
 import Header from'../component/Header';
 import Settings from'../component/Settings';
 import Main from'../component/Main';
@@ -62,9 +61,9 @@ function Dasboard(props) {
                                         <div className="col">
                                             
                                         </div>
-                                        <div className="col">
-                                            <input name="check" id="chkShowPassword" type="checkbox" className="form-check-input" onClick={()=>{setVisible(!isVisible)}}/>
-                                            <label htmlFor="chkShowPassword" className="form-check-label">Show Password</label>
+                                        <div className="col custom-checkbox custom-control">
+                                            <input name="check" id="chkShowPassword" type="checkbox" className="custom-control-input" onClick={()=>{setVisible(!isVisible)}}/>
+                                            <label htmlFor="chkShowPassword" className="custom-control-label">Show Password</label>
                                         </div>
                                     </div>
                                 </div>
@@ -72,7 +71,7 @@ function Dasboard(props) {
                                 <div className="d-flex align-items-center">
                                     <div className="ml-auto">
                                         <a href="" className="btn-lg btn btn-link">Recover Password</a>
-                                        <button data-dismiss="modal" onClick={(e)=>{e.preventDefault(); tryLogin(document.getElementById("txtUsername").value,document.getElementById("txtPassword").value) }} className="btn-wide btn btn-info btn-lg">Login</button>
+                                        <button data-dismiss="modal" onClick={(e)=>{e.preventDefault(); tryLogin(document.getElementById("txtUsername").value,document.getElementById("txtPassword").value) }} className="btn-shadow btn-wide float-right btn-pill btn-hover-shine btn btn-info">Login</button>
                                     </div>
                                 </div>
                             </form>

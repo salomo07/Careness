@@ -17,7 +17,7 @@ function Left() {
                     <div className="menu-header-content btn-pane-right">
                         <div className="avatar-icon-wrapper mr-3 avatar-icon-xl btn-hover-shine">
                             <div className="avatar-icon rounded">
-                                <img src={userdata.profile.foto} alt="User"/>
+                                <img onError={(e)=>{e.target.src="img/user.png"}} src={userdata.profile.foto} alt="User"/>
                             </div>
                         </div>
                         <div>

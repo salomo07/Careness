@@ -7,8 +7,10 @@ import Dasboard from'./pages/Dasboard';
 import NotFound from'./pages/NotFound';
 import Functions from './Functions';
 import Drawer from'./component/Drawer';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
-var {ToastContainer,toast,PouchDB,bcrypt,dbLocal,dbRemote,notifConfig}=require ("./initApp.js");
+
+var {PouchDB,bcrypt,dbLocal,dbRemote,ToastContainer,toast,notifConfig}=require ("./initApp.js");
 
 
 // bcrypt.hash("rejoice", salt, function(err, hash) {
@@ -24,7 +26,7 @@ var dataSaved=JSON.parse(window.localStorage.getItem("userdata"));
 var App=() => {
     var [userdata, setUserdata] = useState(dataSaved);
     var tryLogin=useCallback((username,password)=>{
-        new Functions().get(username,(res,err)=>{
+        new Functions().get(username,(res,err)=>{console.log('sss',res,err)
             if(err==null)
             {
                 bcrypt.compare(password, res.password, (e, r) => {
@@ -34,6 +36,7 @@ var App=() => {
             }
             else
             {toast.error('Can not connect to server !!!', notifConfig);}
+
         })
     });
 
@@ -49,7 +52,7 @@ var App=() => {
     });
     return (
     	<Router basename="/">
-            <AppContext.Provider value={{userdata:userdata,setUserdata:setUserdata,tryLogin:tryLogin,tryLogout:tryLogout,toast:toast}}>
+            <AppContext.Provider value={{userdata:userdata,setUserdata:setUserdata,tryLogin:tryLogin,tryLogout:tryLogout}}>
 	      	<Switch>
 	        	<Route exact path="/">                    
                     <Dasboard/>
@@ -63,6 +66,7 @@ var App=() => {
             </AppContext.Provider>
             <Drawer/>
             <div className="app-drawer-overlay d-none animated fadeIn"></div>
+            <ToastContainer/>
 	    </Router>
     );
 }

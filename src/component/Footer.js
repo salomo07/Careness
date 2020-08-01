@@ -16,7 +16,7 @@ function Footer() {
                                     className="dropdown-menu-xl rm-pointers dropdown-menu">
                                     <div className="dropdown-menu-header mb-0">
                                         <div className="dropdown-menu-header-inner bg-deep-blue">
-                                            <div className="menu-header-image opacity-1" style={{backgroundImage:"url('img/dropdown-header/city3.jpg')"}}></div>
+                                            <div className="menu-header-image opacity-1" style={{backgroundImage:"url('assets/images/dropdown-header/city3.jpg')"}}></div>
                                             <div className="menu-header-content text-dark">
                                                 <h5 className="menu-header-title">Notifications</h5>
                                                 <h6 className="menu-header-subtitle">You have <b>21</b> unread messages</h6>
@@ -86,47 +86,47 @@ function Footer() {
                                                                                 <div className="avatar-wrapper mt-2 avatar-wrapper-overlap">
                                                                                     <div className="avatar-icon-wrapper avatar-icon-sm">
                                                                                         <div className="avatar-icon">
-                                                                                            <img src="img/avatars/1.jpg" alt=""/>
+                                                                                            <img src="assets/images/avatars/1.jpg" alt=""/>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div
                                                                                         className="avatar-icon-wrapper avatar-icon-sm">
                                                                                         <div className="avatar-icon">
-                                                                                            <img src="img/avatars/2.jpg" alt=""/>
+                                                                                            <img src="assets/images/avatars/2.jpg" alt=""/>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div
                                                                                         className="avatar-icon-wrapper avatar-icon-sm">
                                                                                         <div className="avatar-icon">
-                                                                                            <img src="img/avatars/3.jpg" alt=""/>
+                                                                                            <img src="assets/images/avatars/3.jpg" alt=""/>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div
                                                                                         className="avatar-icon-wrapper avatar-icon-sm">
                                                                                         <div className="avatar-icon">
-                                                                                            <img src="img/avatars/4.jpg" alt=""/>
+                                                                                            <img src="assets/images/avatars/4.jpg" alt=""/>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div className="avatar-icon-wrapper avatar-icon-sm">
                                                                                         <div className="avatar-icon">
-                                                                                            <img src="img/avatars/5.jpg" alt=""/>
+                                                                                            <img src="assets/images/avatars/5.jpg" alt=""/>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div className="avatar-icon-wrapper avatar-icon-sm">
                                                                                         <div className="avatar-icon">
-                                                                                            <img src="img/avatars/9.jpg" alt=""/>
+                                                                                            <img src="assets/images/avatars/9.jpg" alt=""/>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div
                                                                                         className="avatar-icon-wrapper avatar-icon-sm">
                                                                                         <div className="avatar-icon">
-                                                                                            <img src="img/avatars/7.jpg" alt=""/>
+                                                                                            <img src="assets/images/avatars/7.jpg" alt=""/>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div
                                                                                         className="avatar-icon-wrapper avatar-icon-sm">
                                                                                         <div className="avatar-icon">
-                                                                                            <img src="img/avatars/8.jpg" alt=""/>
+                                                                                            <img src="assets/images/avatars/8.jpg" alt=""/>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div className="avatar-icon-wrapper avatar-icon-sm avatar-icon-add">
@@ -351,7 +351,7 @@ function Footer() {
                                 <div tabIndex="-1" role="menu" aria-hidden="true" className="rm-pointers dropdown-menu">
                                     <div className="dropdown-menu-header">
                                         <div className="dropdown-menu-header-inner pt-4 pb-4 bg-focus">
-                                            <div className="menu-header-image opacity-05" style={{backgroundImage:"url('img/dropdown-header/city2.jpg')"}}></div>
+                                            <div className="menu-header-image opacity-05" style={{backgroundImage:"url('assets/images/dropdown-header/city2.jpg')"}}></div>
                                             <div className="menu-header-content text-center text-white">
                                                 <h6 className="menu-header-subtitle mt-0"> Choose Language</h6>
                                             </div>
@@ -389,7 +389,7 @@ function Footer() {
                                 <div tabIndex="-1" role="menu" aria-hidden="true" className="dropdown-menu-xl rm-pointers dropdown-menu">
                                     <div className="dropdown-menu-header">
                                         <div className="dropdown-menu-header-inner bg-premium-dark">
-                                            <div className="menu-header-image" style={{backgroundImage:"url('img/dropdown-header/abstract4.jpg')"}}></div>
+                                            <div className="menu-header-image" style={{backgroundImage:"url('assets/images/dropdown-header/abstract4.jpg')"}}></div>
                                             <div className="menu-header-content text-white">
                                                 <h5 className="menu-header-title">Users Online</h5>
                                                 <h6 className="menu-header-subtitle">Recent Account Activity Overview</h6>
@@ -427,8 +427,10 @@ function Footer() {
                             </div>
                             <div className="dots-separator"></div>
                             <div className="dropdown">
-                                <a href="https://api.whatsapp.com/send?phone=6281288643757&text=Hai careness !!!" className="dot-btn-wrapper dd-chart-btn-2" aria-haspopup="true" data-toggle="dropdown" aria-expanded="false">
-                                    <img className="dot-btn-icon lnr-pie-chart icon-gradient bg-love-kiss"/>
+                                <a href="https://api.whatsapp.com/send?phone=6281288643757&text=Hallo.%20Careness.org" className="dot-btn-wrapper dd-chart-btn-2" aria-haspopup="true" aria-expanded="false">
+                                <img scr="assets/images/wa.png"/>
+                                    <i className="dot-btn-icon lnr-pie-chart icon-gradient bg-love-kiss"></i>
+                                    <div className="badge badge-dot badge-abs badge-dot-sm badge-warning">Notifications</div>
                                 </a>
                             </div>
                         </div>
@@ -506,7 +508,7 @@ function Footer() {
                                     <div className="d-none popover-custom-content">
                                         <div className="dropdown-menu-header">
                                             <div className="dropdown-menu-header-inner bg-tempting-azure">
-                                                <div className="menu-header-image opacity-1" style={{backgroundImage:"url('img/dropdown-header/city5.jpg')"}}></div>
+                                                <div className="menu-header-image opacity-1" style={{backgroundImage:"url('assets/images/dropdown-header/city5.jpg')"}}></div>
                                                 <div className="menu-header-content text-dark">
                                                     <h5 className="menu-header-title">Two Column Grid</h5>
                                                     <h6 className="menu-header-subtitle">Easy grid navigation inside popovers</h6>

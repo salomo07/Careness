@@ -14,7 +14,11 @@ class Functions {
 		dbLocal.put(data, (err, res) => {
             if (!err) 
             {callback(res,null)}
-            else{console.log(err);toast.error("Fail putting data to database");}
+            else
+            {
+            	console.log(err);
+            	toast.error("Fail putting data to database");
+            }
         });
 	}
 	async get(key,callback)
@@ -22,7 +26,11 @@ class Functions {
         dbLocal.get(key,(err,res)=>{
 	        if(err==null)
 	        {callback(res,null)}
-	        else{console.log(err);toast.error("Fail getting data from database");}
+	        else
+	        {
+	        	console.log(err);
+	        	toast.error("Fail getting data from database");
+	        }
 	    })
 	}
 	async find(options,callback)
@@ -31,7 +39,11 @@ class Functions {
 		dbLocal.find(options,(err,res)=>{
 	    	if(err==null)
 	        {callback(res,null)}
-	        else{console.log(err);toast.error("Fail finding data from database");}
+	        else
+	        {
+	        	console.log(err);
+	        	toast.error("Fail finding data from database");
+	        }
 	    });
 	}
 }

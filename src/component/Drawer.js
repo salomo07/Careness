@@ -254,7 +254,7 @@ function Drawer() {
                                         </div>
                                         <div className="widget-content-left mr-3">
                                             <div className="widget-content-left">
-                                                <img width="42" className="rounded" src="img/avatars/1.jpg" alt="" />
+                                                <img width="42" className="rounded" src="assets/images/avatars/1.jpg" alt="" />
                                             </div>
                                         </div>
                                         <div className="widget-content-left">
@@ -344,42 +344,42 @@ function Drawer() {
                                             <div className="avatar-wrapper mt-2 avatar-wrapper-overlap">
                                                 <div className="avatar-icon-wrapper avatar-icon-sm">
                                                     <div className="avatar-icon">
-                                                        <img src="img/avatars/1.jpg" alt=""/>
+                                                        <img src="assets/images/avatars/1.jpg" alt=""/>
                                                     </div>
                                                 </div>
                                                 <div className="avatar-icon-wrapper avatar-icon-sm">
                                                     <div className="avatar-icon">
-                                                        <img src="img/avatars/2.jpg" alt=""/>
+                                                        <img src="assets/images/avatars/2.jpg" alt=""/>
                                                     </div>
                                                 </div>
                                                 <div className="avatar-icon-wrapper avatar-icon-sm">
                                                     <div className="avatar-icon">
-                                                        <img src="img/avatars/3.jpg" alt=""/>
+                                                        <img src="assets/images/avatars/3.jpg" alt=""/>
                                                     </div>
                                                 </div>
                                                 <div className="avatar-icon-wrapper avatar-icon-sm">
                                                     <div className="avatar-icon">
-                                                        <img src="img/avatars/4.jpg" alt=""/>
+                                                        <img src="assets/images/avatars/4.jpg" alt=""/>
                                                     </div>
                                                 </div>
                                                 <div className="avatar-icon-wrapper avatar-icon-sm">
                                                     <div className="avatar-icon">
-                                                        <img src="img/avatars/5.jpg" alt=""/>
+                                                        <img src="assets/images/avatars/5.jpg" alt=""/>
                                                     </div>
                                                 </div>
                                                 <div className="avatar-icon-wrapper avatar-icon-sm">
                                                     <div className="avatar-icon">
-                                                        <img src="img/avatars/6.jpg" alt=""/>
+                                                        <img src="assets/images/avatars/6.jpg" alt=""/>
                                                     </div>
                                                 </div>
                                                 <div className="avatar-icon-wrapper avatar-icon-sm">
                                                     <div className="avatar-icon">
-                                                        <img src="img/avatars/7.jpg" alt=""/>
+                                                        <img src="assets/images/avatars/7.jpg" alt=""/>
                                                     </div>
                                                 </div>
                                                 <div className="avatar-icon-wrapper avatar-icon-sm">
                                                     <div className="avatar-icon">
-                                                        <img src="img/avatars/8.jpg" alt=""/>
+                                                        <img src="assets/images/avatars/8.jpg" alt=""/>
                                                     </div>
                                                 </div>
                                                 <div className="avatar-icon-wrapper avatar-icon-sm avatar-icon-add">

@@ -6,8 +6,8 @@ function SlideShow() {
     <div className="col-sm-12 col-lg-12">
       <div className="mb-3 card" style={{borderRadius:'10px'}}>
             <div className="card-body">
-            <h5 className="card-title">Multiple Items</h5>
-            <div className="slick-slider" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
+            <h5 className="card-title">Responsive</h5>
+            <div className="slick-slider-responsive" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
                 <div>
                     <div className="slider-item">1</div>
                 </div>

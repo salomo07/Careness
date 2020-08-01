@@ -359,18 +359,18 @@ function Header() {
                         <div className="widget-content-wrapper" style={{cursor: 'pointer'}} data-toggle="dropdown">
                             <div className="widget-content-left">
                                 <a aria-haspopup="true" aria-expanded="false" className="p-0 btn">
-                                    <img width="42" className="rounded-circle" src="assets/images/avatars/1.jpg" alt=""/>
+                                    <img width="42" height="42" onError={(e)=>{e.target.src="img/user.png"}} className="rounded-circle" src={userdata.profile.foto} alt=""/>
                                     <i className="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
                                 <div className="rm-pointers dropdown-menu-lg dropdown-menu dropdown-menu-right">
                                     <div className="dropdown-menu-header">
                                         <div className="dropdown-menu-header-inner bg-info">
-                                            <div className="menu-header-image opacity-2" style={{backgroundImage:"url('assets/images/dropdown-header/city3.jpg')"}}></div>
+                                            <div className="menu-header-image opacity-2" style={{backgroundImage:"url('"+userdata.profile.fotowall+"')"}}></div>
                                             <div className="menu-header-content text-left">
                                                 <div className="widget-content p-0">
                                                     <div className="widget-content-wrapper">
                                                         <div className="widget-content-left mr-3">
-                                                            <img width="62" className="rounded-circle" src="assets/images/avatars/1.jpg" alt=""/>
+                                                            <img width="62" height="62" className="rounded-circle" onError={(e) => {e.target.src="img/user.png"}} src={userdata.profile.foto} alt={userdata.profile.lastname}/>
                                                         </div>
                                                         <div className="widget-content-left">
                                                             <div className="widget-heading"><center>{userdata.profile.firstname} {userdata.profile.lastname}</center></div>
