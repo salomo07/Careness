@@ -2,7 +2,7 @@ var {dbLocal,dbRemote,toast}=require ("./initApp.js");
 class Functions {
 	async querying(url,callback)
 	{
-		dbLocal.query(url).then((res)=> {
+		dbRemote.query(url).then((res)=> {
 	      callback(res,null);
 	    }).catch(function (err) {
 	    	callback(null,err);
@@ -11,7 +11,7 @@ class Functions {
 	}
 	async put(data,callback)
 	{
-		dbLocal.put(data, (err, res) => {
+		dbRemote.put(data, (err, res) => {
             if (!err) 
             {callback(res,null)}
             else
@@ -23,7 +23,7 @@ class Functions {
 	}
 	async get(key,callback)
 	{
-        dbLocal.get(key,(err,res)=>{
+        dbRemote.get(key,(err,res)=>{
 	        if(err==null)
 	        {callback(res,null)}
 	        else
@@ -35,8 +35,8 @@ class Functions {
 	}
 	async find(options,callback)
 	{
-		// dbLocal.createIndex({index: {fields: ['coll']}});
-		dbLocal.find(options,(err,res)=>{
+		// dbRemote.createIndex({index: {fields: ['coll']}});
+		dbRemote.find(options,(err,res)=>{
 	    	if(err==null)
 	        {callback(res,null)}
 	        else
