@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 function SlideShow() {
+    console.log('Slideeeeeeee')
   return (
     <div className="col-sm-12 col-lg-12">
       <div className="mb-3 card" style={{borderRadius:'10px'}}>
