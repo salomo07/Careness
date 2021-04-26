@@ -1,4 +1,4 @@
-import React,{useContext,useCallback,useEffect,useState} from 'react';
+import React,{useContext,useEffect,useState} from 'react';
 import {Link} from "react-router-dom";
 
 import {AppContext} from '../component/AppContext';
@@ -17,7 +17,7 @@ function Dasboard(props) {
     var tryLogin=useContext(AppContext).tryLogin;
     var [isVisible,setVisible]=useState(false);
     var [report,setReport] = useState();
-
+    var $=window.$;
     if(userdata&&userdata.report==undefined)
     {
         new Functions().find({selector:{coll:"report",createdby:userdata._id,status:{$ne:'finished'}}},(res,err)=>{
@@ -75,6 +75,62 @@ function Dasboard(props) {
                                     </div>
                                 </div>
                             </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="modal fade" id="detailModal" tabIndex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <img width="32" className="" src="assets/images/logoonly.png" style={{marginRight :'10px'}} alt=""/>
+                            <h5 className="modal-title" id="loginModalLabel">Detail Contact</h5>
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div className="modal-body">
+                                <div className="form-row">
+                                    <div className="col-md-6">
+                                        <div className="position-relative form-group">
+                                            <label htmlFor="txtFirstname" className="">Firstname</label>
+                                            <input name="firstname" id="txtFirstname" placeholder="Firstname" type="text" className="form-control form-control-lg"/>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <div className="position-relative form-group">
+                                            <label htmlFor="txtLastname" className="">Lastname</label>
+                                            <input name="lastname" id="txtLastname" placeholder="Lastname" className="form-control form-control-lg"/>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <div className="position-relative form-group">
+                                            <label htmlFor="txtAge" className="">Age</label>
+                                            <input name="age" type="number" id="txtAge" placeholder="Age" className="form-control form-control-lg"/>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-12"><div className="position-relative form-group"><label htmlFor="exampleText" className="">Link Photo</label><textarea id="txtPhoto" placeholder="Link Photo" name="text" className="form-control"></textarea></div>
+                                    </div>
+                                </div>
+                                <div className="divider"></div>
+                                <div className="d-flex align-items-center">
+                                    <div className="ml-auto">
+                                    <input id="inputId" type="hidden" value=""/>
+                                        <button id="btnSaveContact" data-dismiss="modal" onClick={(e)=>{ 
+                                            var data={id:$('.modal-body').find('#inputId').val(),firstName:$('.modal-body').find('#txtFirstname').val(),lastName:$('.modal-body').find('#txtLastname').val(),age:$('.modal-body').find('#txtLastname').val(),photo:$('.modal-body').find('#txtPhoto').val()};
+                                            console.log(data);
+                                            var conf={mode: 'cors',method: 'PUT',body: JSON.stringify({}),headers: {'Content-Type': 'application/json','Access-Control-Allow-Origin':'*'}}
+                                            fetch("https://simple-contact-crud.herokuapp.com/contact/"+$('.modal-body').find('#inputId').val(),conf).then(res => res.json()).then(
+                                                (result) => {
+                                                   console.log(result);
+                                                },
+                                                (error) => {
+                                                  console.log('Error',error);
+                                                }
+                                            )
+                                        }} className="btn-shadow btn-wide float-right btn-pill btn-hover-shine btn btn-info">Save Contact</button>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>

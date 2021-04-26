@@ -7,7 +7,7 @@ function Right() {
   var userdata=useContext(AppContext).userdata;
   if(userdata==null) return (<></>);
   return (    
-    <div className="mb-3 card">
+    <div className="mb-6 card">
         <div className="card-header-tab card-header">
             <div className="card-header-title font-size-lg text-capitalize font-weight-normal">
                 <i className="header-icon lnr-cloud-download icon-gradient bg-happy-itmeo"></i>
