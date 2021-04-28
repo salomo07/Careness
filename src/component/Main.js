@@ -1,5 +1,4 @@
-import React,{useContext,useEffect} from 'react';
-import {AppContext} from '../component/AppContext';
+import React from 'react';
 import SlideShow from'../component/SlideShow';
 import Contact from'../component/Contact';
 import Mid from'../component/Mid';
@@ -10,7 +9,6 @@ import Footer from'../component/Footer';
 function Main() {
     // var userdata=useContext(AppContext).userdata;
     // var isLoggedIn=userdata!=null? true : false;
-    
     return (
     <div className="app-main">
         <div className="app-main__outer">

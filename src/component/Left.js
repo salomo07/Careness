@@ -1,6 +1,6 @@
-import React,{useContext,useEffect} from 'react';
+import React,{useContext} from 'react';
 import {AppContext} from '../component/AppContext';
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
 
 /*For user's profile*/
 

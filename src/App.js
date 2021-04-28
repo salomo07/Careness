@@ -26,7 +26,7 @@ var dataSaved=JSON.parse(window.localStorage.getItem("userdata"));
 var App=() => {
     var [userdata, setUserdata] = useState(dataSaved);
     var tryLogin=useCallback((username,password)=>{
-        new Functions().get(username,(res,err)=>{console.log('sss',res,err)
+        new Functions().get(username,(res,err)=>{
             if(err==null)
             {
                 bcrypt.compare(password, res.password, (e, r) => {
