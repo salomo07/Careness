@@ -11,7 +11,7 @@ function Contact(props) {
         if(contacts==undefined)
         fetch("/contact").then(res => res.json()).then(
             (result) => {
-                setContacts(result.data);
+                setContacts(result.data); console.log(result.data)
             },
             (error) => {
               setContacts([]);console.log('Error',error);
@@ -21,7 +21,7 @@ function Contact(props) {
     var loadContacts=useCallback(()=>{
         fetch("/contact").then(res => res.json()).then(
             (result) => {
-                setContacts(result.data);
+                setContacts(result.data);console.log(result.data)
             },
             (error) => {
               setContacts([]);console.log('Error');
@@ -47,7 +47,8 @@ function Contact(props) {
         )
     });
     var deleteContact=useCallback((id)=>{
-        var conf={method: 'DELETE'}
+        // var conf={method: 'DELETE'};
+        var conf={method: 'DELETE',headers: {'Content-Type': 'application/json','Access-Control-Allow-Origin':"*"}}
         fetch("/contact/"+id,conf).then(res => res.json()).then(
             (result) => {
                 console.log('Deleted',result);loadContacts();

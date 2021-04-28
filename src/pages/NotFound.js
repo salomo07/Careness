@@ -3,10 +3,7 @@ import React,{useContext,useEffect} from 'react';
 import {AppContext} from '../component/AppContext';
 
 function NotFound(props) {
-    var userdata=useContext(AppContext).userdata;
-    useEffect(()=>{
 
-    })
     return (
       <div>
         <main>

@@ -1,14 +1,11 @@
 import React,{useEffect} from 'react';
-import {Link} from "react-router-dom";
+
 var $ = window.$;
 function SlideShow() {
     var eleDiv=React.createRef();
     useEffect(()=>{
         if($('.slick-slider-responsive').length>0)
         $(eleDiv.current).slick();
-        // console.log($(eleDiv.current).slick());
-       // eleDiv.current.slick({dots:!0,slidesToShow:1,slidesToScroll:1});
-        // console.log('effect')
     })
   return (
     <div className="col-sm-12 col-lg-12">

@@ -3,7 +3,6 @@ import SlideShow from'../component/SlideShow';
 import Contact from'../component/Contact';
 import Mid from'../component/Mid';
 import Left from'../component/Left';
-import Right from'../component/Right';
 import Footer from'../component/Footer';
 
 function Main() {

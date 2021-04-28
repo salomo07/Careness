@@ -3,17 +3,10 @@ import {Link} from "react-router-dom";
 
 import {AppContext} from '../component/AppContext';
 function Header() {
-    var [isDropdownOpen,setDropdown] = useState(false);
     var userdata=useContext(AppContext).userdata;
     var isLoggedIn=userdata!=null? true : false;
     var tryLogout=useContext(AppContext).tryLogout;
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [showPwd, setShowPwd] = useState(false);
 
-    var changeShowPwd=useCallback(()=>{
-        setShowPwd(!showPwd);
-    });
     useEffect(()=>{
         if(userdata!=null)
         {document.getElementById("btnLogout").addEventListener("click", tryLogout);}
