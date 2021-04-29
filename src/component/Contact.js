@@ -1,5 +1,4 @@
 import React,{useEffect,useState,useCallback,useContext} from 'react';
-import {Link} from "react-router-dom";
 import {AppContext} from '../component/AppContext';
 var $=window.$;
 function Contact(props) {
