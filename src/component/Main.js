@@ -2,12 +2,10 @@ import React from 'react';
 import SlideShow from'../component/SlideShow';
 import Contact from'../component/Contact';
 import Mid from'../component/Mid';
-import Left from'../component/Left';
+import Right from'../component/Right';
 import Footer from'../component/Footer';
 
 function Main() {
-    // var userdata=useContext(AppContext).userdata;
-    // var isLoggedIn=userdata!=null? true : false;
     return (
     <div className="app-main">
         <div className="app-main__outer">
@@ -23,7 +21,7 @@ function Main() {
                         </div>                                        
                         <Mid/>
                         <div className="col-sm-12 col-lg-3 right-side">
-                            <Left style={{display:true}}/>
+                            <Right style={{display:true}}/>
                         </div>
                     </div>
                 </div>

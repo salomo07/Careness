@@ -1,7 +1,6 @@
-import React,{useState,useCallback,useEffect} from 'react';
+import React,{useState,useCallback} from 'react';
 import { Route, BrowserRouter as Router,Switch,Redirect} from "react-router-dom";
-
-import {AppContext} from './component/AppContext';
+import {AppContext} from './AppContext';
 
 import Dasboard from'./pages/Dasboard';
 import NotFound from'./pages/NotFound';
@@ -10,7 +9,8 @@ import Drawer from'./component/Drawer';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
-var {PouchDB,bcrypt,dbLocal,dbRemote,ToastContainer,toast,notifConfig}=require ("./initApp.js");
+
+var {bcrypt,ToastContainer,toast,notifConfig}=require ("./initApp.js");
 
 
 // bcrypt.hash("rejoice", salt, function(err, hash) {
@@ -36,20 +36,16 @@ var App=() => {
             }
             else
             {toast.error('Can not connect to server !!!', notifConfig);}
-
         })
-    });
+    },[]);
 
     var tryLogout=useCallback(()=>{
         setUserdata(null);
         window.localStorage.removeItem("userdata");
         delete window.report;
         // window.location.reload();
-    });
-    
-    var updateUserdata=useCallback((data)=>{
-        setUserdata(data);console.log('Userdata updated',data)
-    });
+    },[]);
+
     return (
     	<Router basename="/">
             <AppContext.Provider value={{userdata:userdata,setUserdata:setUserdata,tryLogin:tryLogin,tryLogout:tryLogout}}>
@@ -57,7 +53,10 @@ var App=() => {
 	        	<Route exact path="/">                    
                     <Dasboard/>
 	          	</Route>
-                <Route path="/signout">                    
+                <Route path="/detailpoke/:id">
+                    <Dasboard/>
+                </Route>
+                <Route path="/signout">
                     <Redirect to="/" />
                 </Route>
                 <Route component={NotFound} />
@@ -67,6 +66,7 @@ var App=() => {
             <Drawer/>
             <div className="app-drawer-overlay d-none animated fadeIn"></div>
             <ToastContainer/>
+            
 	    </Router>
     );
 }

@@ -1,11 +1,7 @@
 import React,{useContext} from 'react';
 import {Link} from "react-router-dom";
-import {AppContext} from '../component/AppContext';
-/*Tags*/
 
 function Right() {
-  var userdata=useContext(AppContext).userdata;
-  if(userdata==null) return (<></>);
   return (    
     <div className="mb-6 card">
         <div className="card-header-tab card-header">

@@ -1,8 +1,8 @@
 import React,{useEffect,useState,useContext,useCallback} from 'react';
-import {AppContext} from '../component/AppContext';
 import Functions from '../Functions';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
+const AppContext = React.createContext();
 var {dbLocal,dbRemote,toast,urlScriptPlace}=require ("../initApp.js");
 
 var $=window.$;

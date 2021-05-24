@@ -1,35 +1,21 @@
-import React,{useContext,useState} from 'react';
-
-import {AppContext} from '../component/AppContext';
+import React,{useContext,useState} from 'react'
+import {AppContext} from '../AppContext';
 
 import Header from'../component/Header';
 import Settings from'../component/Settings';
 import Main from'../component/Main';
-
-
-import Functions from '../Functions';
-var $=window.$;
 
 function Dasboard(props) {
     var userdata=useContext(AppContext).userdata;
     var setUserdata=useContext(AppContext).setUserdata;
     var tryLogin=useContext(AppContext).tryLogin;
     var [isVisible,setVisible]=useState(false);
-    var [report,setReport] = useState();
-    var [reload,setReload]=useState(0);
 
-    if(userdata&&userdata.report==undefined)
-    {
-        new Functions().find({selector:{coll:"report",createdby:userdata._id,status:{$ne:'finished'}}},(res,err)=>{
-            userdata.report=res.docs[0];
-            setUserdata(userdata);
-        })
-    }
     return (
         <div className="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar closed-sidebar">
             <Header/>
             <Settings/>
-            <Main key={reload}/>
+            <Main />
             <div className="modal fade" id="loginModal" tabIndex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
@@ -45,13 +31,13 @@ function Dasboard(props) {
                                 <div className="form-row">
                                     <div className="col-md-6">
                                         <div className="position-relative form-group">
-                                            <label htmlFor="txtUsername" className="">Username</label>
-                                            <input name="email" id="txtUsername" placeholder="Email here..." type="text" className="form-control form-control-lg"/>
+                                            <label htmlFor="txtUsername" className="">Username (Salomo07)</label>
+                                            <input name="email" id="txtUsername" placeholder="Username" type="text" className="form-control form-control-lg"/>
                                         </div>
                                     </div>
                                     <div className="col-md-6">
                                         <div className="position-relative form-group">
-                                            <label htmlFor="txtPassword" className="">Password</label>
+                                            <label htmlFor="txtPassword" className="">Password (rejoice)</label>
                                             <input name="password" id="txtPassword" placeholder="Password here..." type={isVisible?"text":"password"} className="form-control form-control-lg"/>
                                         </div>
                                     </div>
@@ -116,19 +102,7 @@ function Dasboard(props) {
                             <div className="d-flex align-items-center">
                                 <div className="ml-auto">
                                 <input id="inputId" type="hidden" value=""/>
-                                    <button id="btnSaveContact" data-dismiss="modal" onClick={(e)=>{ 
-                                        var data={"firstName":$('.modal-body').find('#txtFirstname').val(),"lastName":$('.modal-body').find('#txtLastname').val(),"age":$('.modal-body').find('#txtAge').val(),"photo":$('.modal-body').find('#txtPhoto').val()};
-                                        console.log(data);
-                                        var conf={mode:'cors',method: 'PUT',body: JSON.stringify(data),headers: {'Content-Type': 'application/json','Access-Control-Allow-Origin':"*"}}
-                                        fetch("/contact/"+$('.modal-body').find('#inputId').val(),conf).then(res => res.json()).then(
-                                            (result) => {
-                                               console.log(result);setReload(reload+1);
-                                            },
-                                            (error) => {
-                                              console.log('Error',error);
-                                            }
-                                        )
-                                    }} className="btn-shadow btn-wide float-right btn-pill btn-hover-shine btn btn-info">Save Contact</button>
+                                    <button id="btnSaveContact" data-dismiss="modal" className="btn-shadow btn-wide float-right btn-pill btn-hover-shine btn btn-info">Save Contact</button>
                                 </div>
                             </div>
                         </div>
@@ -172,19 +146,7 @@ function Dasboard(props) {
                             <div className="d-flex align-items-center">
                                 <div className="ml-auto">
                                 <input id="inputId" type="hidden" value=""/>
-                                    <button id="btnSaveContact" data-dismiss="modal" onClick={(e)=>{ 
-                                        var data={"firstName":$('#addModal').find('#txtFirstname').val(),"lastName":$('#addModal').find('#txtLastname').val(),"age":$('#addModal').find('#txtAge').val(),"photo":$('#addModal').find('#txtPhoto').val()};
-
-                                        var conf={mode:'cors',method: 'POST',body: JSON.stringify(data),headers: {'Content-Type': 'application/json','Access-Control-Allow-Origin':"*"}}
-                                        fetch("/contact",conf).then(res => res.json()).then(
-                                            (result) => {
-                                               setReload(reload+1);
-                                            },
-                                            (error) => {
-                                              console.log('Error',error);
-                                            }
-                                        )
-                                    }} className="btn-shadow btn-wide float-right btn-pill btn-hover-shine btn btn-info">Save Contact</button>
+                                    <button id="btnSaveContact" data-dismiss="modal" className="btn-shadow btn-wide float-right btn-pill btn-hover-shine btn btn-info">Save Contact</button>
                                 </div>
                             </div>
                         </div>

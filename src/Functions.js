@@ -1,8 +1,18 @@
 var {dbLocal,dbRemote,toast}=require ("./initApp.js");
+
 class Functions {
+	connecting(){
+		return dbRemote.info().then(function (result) {
+			dbLocal.sync(dbRemote);
+			console.log("Online DB");return dbRemote;
+		}).catch(function (err) {
+			console.log("Offline DB");return dbLocal;
+		});
+	}
 	async querying(url,callback)
 	{
-		dbRemote.query(url).then((res)=> {
+		var dbConnection=await this.connecting();
+		dbConnection.query(url).then((res)=> {
 	      callback(res,null);
 	    }).catch(function (err) {
 	    	callback(null,err);
@@ -11,7 +21,8 @@ class Functions {
 	}
 	async put(data,callback)
 	{
-		dbRemote.put(data, (err, res) => {
+		var dbConnection=await this.connecting();
+		dbConnection.put(data, (err, res) => {
             if (!err) 
             {callback(res,null)}
             else
@@ -23,7 +34,9 @@ class Functions {
 	}
 	async get(key,callback)
 	{
-        dbRemote.get(key,(err,res)=>{
+		var dbConnection=await this.connecting();
+		console.log(dbConnection);
+        dbConnection.get(key,(err,res)=>{
 	        if(err==null)
 	        {callback(res,null)}
 	        else
@@ -35,8 +48,9 @@ class Functions {
 	}
 	async find(options,callback)
 	{
-		// dbRemote.createIndex({index: {fields: ['coll']}});
-		dbRemote.find(options,(err,res)=>{
+		// await dbConnection.createIndex({index: {fields: ['coll']}});
+		var dbConnection=await this.connecting();
+		dbConnection.find(options,(err,res)=>{
 	    	if(err==null)
 	        {callback(res,null)}
 	        else
