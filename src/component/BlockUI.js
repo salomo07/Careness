@@ -2,7 +2,6 @@ import React,{useEffect,useState,useCallback,useContext} from 'react';
 var $ =window.$;
 function BlockUI(props) { 
     useEffect(()=>{
-      console.log(window);
       // if($('.loader.mx-auto').length>0)
       // {$.blockUI();}
     })

@@ -4,9 +4,12 @@ import Contact from'../component/Contact';
 import Mid from'../component/Mid';
 import Right from'../component/Right';
 import Footer from'../component/Footer';
+import Sidebar from'../component/Sidebar';
 
 function Main() {
     return (
+    <>
+    <Sidebar/>
     <div className="app-main">
         <div className="app-main__outer">
             <div className="app-main__inner">
@@ -29,6 +32,7 @@ function Main() {
             <Footer/>
         </div>
     </div>
+    </>
   );
 }
 

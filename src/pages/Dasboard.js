@@ -12,7 +12,7 @@ function Dasboard(props) {
     var [isVisible,setVisible]=useState(false);
 
     return (
-        <div className="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar closed-sidebar">
+        <div className="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
             <Header/>
             <Settings/>
             <Main />

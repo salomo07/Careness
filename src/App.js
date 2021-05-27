@@ -1,10 +1,10 @@
-import React,{useState,useCallback} from 'react';
+import React,{useState,useCallback,useEffect} from 'react';
 import { Route, BrowserRouter as Router,Switch,Redirect} from "react-router-dom";
 import {AppContext} from './AppContext';
 
 import Dasboard from'./pages/Dasboard';
 import NotFound from'./pages/NotFound';
-import Functions from './Functions';
+import CouchDB from './CouchDB';
 import Drawer from'./component/Drawer';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -17,33 +17,27 @@ var {bcrypt,ToastContainer,toast,notifConfig}=require ("./initApp.js");
 //  console.log(hash)
 // });
 
-// dbLocal.getIndexes(function (err, result) {
-//   if (err) { return console.log(err); }
-//   console.log(result)
-// });
+// window.localStorage.clear();
 var dataSaved=JSON.parse(window.localStorage.getItem("userdata"));
 
 var App=() => {
     var [userdata, setUserdata] = useState(dataSaved);
     var tryLogin=useCallback((username,password)=>{
-        new Functions().get(username,(res,err)=>{
+        new CouchDB().find({selector:{"coll":"user",username:{$eq: username}}},(res,err)=>{
             if(err==null)
             {
-                bcrypt.compare(password, res.password, (e, r) => {
-                    if(r){window.localStorage.setItem("userdata",JSON.stringify(res));setUserdata(res);}
+                bcrypt.compare(password, res.docs[0].password, (e, r) => {
+                    if(r){window.localStorage.setItem("userdata",JSON.stringify(res.docs[0]));setUserdata(res.docs[0]);}
                     else{toast('Your username or password is wrong', notifConfig);}
                 });
             }
             else
             {toast.error('Can not connect to server !!!', notifConfig);}
-        })
+        });
     },[]);
-
     var tryLogout=useCallback(()=>{
         setUserdata(null);
-        window.localStorage.removeItem("userdata");
-        delete window.report;
-        // window.location.reload();
+        window.localStorage.clear();
     },[]);
 
     return (

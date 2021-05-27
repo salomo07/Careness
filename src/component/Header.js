@@ -9,12 +9,32 @@ function Header() {
 
     useEffect(()=>{
         if(userdata!=null)
-        {document.getElementById("btnLogout").addEventListener("click", tryLogout);}
+        {
+            document.getElementById("btnLogout").addEventListener("click", tryLogout);
+        }
     })
     return (
     <div className="app-header header-shadow bg-arielle-smile header-text-light">
         <div className="app-header__logo">
             <Link to="/"><div className="logo-src" ></div></Link>
+            <div className="header__pane ml-auto">
+                <div>
+                  <button type="button" className="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                    <span className="hamburger-box">
+                      <span className="hamburger-inner" />
+                    </span>
+                  </button>
+                </div>
+            </div>
+        </div>
+        <div className="app-header__mobile-menu">
+            <div>
+              <button type="button" className="hamburger hamburger--elastic mobile-toggle-nav">
+                <span className="hamburger-box">
+                  <span className="hamburger-inner" />
+                </span>
+              </button>
+            </div>
         </div>
         <div className="app-header__menu">
           <span>
@@ -33,168 +53,7 @@ function Header() {
                     <button className="search-icon"><span></span></button>
                   </div>
                   <button className="close"></button>
-                </div>
-                { userdata != null &&
-                <ul className="header-megamenu nav">
-                    <li className="nav-item">
-                        <a href="#" data-placement="bottom" rel="popover-focus" data-offset="300" data-toggle="popover-custom" className="nav-link">
-                            <i className="nav-link-icon pe-7s-gift"> </i> Mega Menu
-                            <i className="fa fa-angle-down ml-2 opacity-5"></i>
-                        </a>
-                        <div className="rm-max-width">
-                            <div className="d-none popover-custom-content">
-                                <div className="dropdown-mega-menu">
-                                    <div className="grid-menu grid-menu-3col">
-                                        <div className="no-gutters row">
-                                            <div className="col-sm-6 col-xl-4">
-                                                <ul className="nav flex-column">
-                                                    <li className="nav-item-header nav-item"> Overview</li>
-                                                    <li className="nav-item">
-                                                        <a href="#" className="nav-link">
-                                                            <i className="nav-link-icon lnr-inbox"></i>
-                                                            <span> Contacts</span>
-                                                        </a>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <a href="#" className="nav-link">
-                                                            <i className="nav-link-icon lnr-book"></i>
-                                                            <span> Incidents</span>
-                                                            <div className="ml-auto badge badge-pill badge-danger">5</div>
-                                                        </a>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <a href="#" className="nav-link">
-                                                            <i className="nav-link-icon lnr-picture"></i>
-                                                            <span> Companies</span>
-                                                        </a>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <a disabled="" href="#" className="nav-link disabled">
-                                                            <i className="nav-link-icon lnr-file-empty"></i>
-                                                            <span> Dashboards</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div className="col-sm-6 col-xl-4">
-                                                <ul className="nav flex-column">
-                                                    <li className="nav-item-header nav-item"> Favourites</li>
-                                                    <li className="nav-item">
-                                                        <a href="#" className="nav-link"> Reports Conversions </a>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <a href="#" className="nav-link"> Quick Start
-                                                            <div className="ml-auto badge badge-success">New</div>
-                                                        </a>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <a href="#" className="nav-link">Users &amp; Groups</a>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <a href="#" className="nav-link">Proprieties</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div className="col-sm-6 col-xl-4">
-                                                <ul className="nav flex-column">
-                                                    <li className="nav-item-header nav-item">Sales &amp; Marketing</li>
-                                                    <li className="nav-item">
-                                                        <a href="#" className="nav-link">Queues </a>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <a href="#" className="nav-link">Resource Groups </a>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <a href="#" className="nav-link">Goal Metrics
-                                                            <div className="ml-auto badge badge-warning">3</div>
-                                                        </a>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <a href="#" className="nav-link">Campaigns</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li className="btn-group nav-item">
-                        <a className="nav-link" data-toggle="dropdown" aria-expanded="false">
-                            <span className="badge badge-pill badge-danger ml-0 mr-2">4</span> Settings
-                            <i className="fa fa-angle-down ml-2 opacity-5"></i>
-                        </a>
-                        <div tabIndex="-1" role="menu" aria-hidden="true" className="rm-pointers dropdown-menu">
-                            <div className="dropdown-menu-header">
-                                <div className="dropdown-menu-header-inner bg-secondary">
-                                    <div className="menu-header-image opacity-5" style={{backgroundImage:"url('img/dropdown-header/abstract2.jpg')"}}></div>
-                                    <div className="menu-header-content">
-                                        <h5 className="menu-header-title">Overview</h5>
-                                        <h6 className="menu-header-subtitle">Dropdown menus for everyone</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="scroll-area-xs">
-                                <div className="scrollbar-container">
-                                    <h6 tabIndex="-1" className="dropdown-header">Key Figures</h6>
-                                    <button type="button" tabIndex="0" className="dropdown-item">Service Calendar</button>
-                                    <button type="button" tabIndex="0" className="dropdown-item">Knowledge Base</button>
-                                    <button type="button" tabIndex="0" className="dropdown-item">Accounts</button>
-                                    <div tabIndex="-1" className="dropdown-divider"></div>
-                                    <button type="button" tabIndex="0" className="dropdown-item">Products</button>
-                                    <button type="button" tabIndex="0" className="dropdown-item">Rollup Queries</button>
-                                </div>
-                            </div>
-                            <ul className="nav flex-column">
-                                <li className="nav-item-divider nav-item"></li>
-                                <li className="nav-item-btn nav-item">
-                                    <button className="btn-wide btn-shadow btn btn-danger btn-sm">Cancel</button>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li className="dropdown nav-item">
-                        <a aria-haspopup="true" data-toggle="dropdown" className="nav-link" aria-expanded="false">
-                            <i className="nav-link-icon pe-7s-settings"></i> Projects
-                            <i className="fa fa-angle-down ml-2 opacity-5"></i>
-                        </a>
-                        <div tabIndex="-1" role="menu" aria-hidden="true" className="dropdown-menu-rounded dropdown-menu-lg rm-pointers dropdown-menu">
-                            <div className="dropdown-menu-header">
-                                <div className="dropdown-menu-header-inner bg-success">
-                                    <div className="menu-header-image opacity-1" style={{backgroundImage:"url('img/dropdown-header/abstract3.jpg')"}}></div>
-                                    <div className="menu-header-content text-left">
-                                        <h5 className="menu-header-title">Overview</h5>
-                                        <h6 className="menu-header-subtitle">Unlimited options</h6>
-                                        <div className="menu-header-btn-pane">
-                                            <button className="mr-2 btn btn-dark btn-sm">Settings</button>
-                                            <button className="btn-icon btn-icon-only btn btn-warning btn-sm">
-                                                <i className="pe-7s-config btn-icon-wrapper"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="button" tabIndex="0" className="dropdown-item">
-                                <i className="dropdown-icon lnr-file-empty"></i>Graphic Design
-                            </button>
-                            <button type="button" tabIndex="0" className="dropdown-item">
-                                <i className="dropdown-icon lnr-file-empty"> </i>App Development
-                            </button>
-                            <button type="button" tabIndex="0" className="dropdown-item">
-                                <i className="dropdown-icon lnr-file-empty"> </i>Icon Design
-                            </button>
-                            <div tabIndex="-1" className="dropdown-divider"></div>
-                            <button type="button" tabIndex="0" className="dropdown-item">
-                                <i className="dropdown-icon lnr-file-empty"></i>Miscellaneous
-                            </button>
-                            <button type="button" tabIndex="0" className="dropdown-item">
-                                <i className="dropdown-icon lnr-file-empty"></i>Frontend Dev
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-                }      
+                </div>   
             </div>
             <div className="app-header-right">
                 <div className="header-dots">
@@ -253,93 +112,6 @@ function Header() {
                                 <li className="nav-item-divider nav-item"></li>
                                 <li className="nav-item-btn text-center nav-item">
                                     <button className="btn-shadow btn btn-primary btn-sm">Follow-ups</button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="dropdown">
-                      <button type="button" data-toggle="dropdown" className="p-0 mr-2 btn btn-link">
-                          <span className="icon-wrapper icon-wrapper-alt rounded-circle">
-                              <span className="icon-wrapper-bg bg-focus"></span>
-                              <span className="language-icon opacity-8 flag large DE"></span>
-                          </span>
-                      </button>
-                      <div tabIndex="-1" role="menu" aria-hidden="true" className="rm-pointers dropdown-menu dropdown-menu-right">
-                          <div className="dropdown-menu-header">
-                              <div className="dropdown-menu-header-inner pt-4 pb-4 bg-focus">
-                                  <div className="menu-header-image opacity-05" style={{backgroundImage:"url('img/dropdown-header/city2.jpg')"}}></div>
-                                  <div className="menu-header-content text-center text-white">
-                                      <h6 className="menu-header-subtitle mt-0"> Choose Language</h6>
-                                  </div>
-                              </div>
-                          </div>
-                          <h6 tabIndex="-1" className="dropdown-header"> Popular Languages</h6>
-                          <button type="button" tabIndex="0" className="dropdown-item">
-                              <span className="mr-3 opacity-8 flag large US"></span> USA
-                          </button>
-                          <button type="button" tabIndex="0" className="dropdown-item">
-                              <span className="mr-3 opacity-8 flag large CH"></span> Switzerland
-                          </button>
-                          <button type="button" tabIndex="0" className="dropdown-item">
-                              <span className="mr-3 opacity-8 flag large FR"></span> France
-                          </button>
-                          <button type="button" tabIndex="0" className="dropdown-item">
-                              <span className="mr-3 opacity-8 flag large ES"></span>Spain
-                          </button>
-                          <div tabIndex="-1" className="dropdown-divider"></div>
-                          <h6 tabIndex="-1" className="dropdown-header">Others</h6>
-                          <button type="button" tabIndex="0" className="dropdown-item active">
-                              <span className="mr-3 opacity-8 flag large DE"></span> Germany
-                          </button>
-                          <button type="button" tabIndex="0" className="dropdown-item">
-                              <span className="mr-3 opacity-8 flag large IT"></span> Italy
-                          </button>
-                      </div>
-                    </div>
-                    <div className="dropdown">
-                      <button type="button" aria-haspopup="true" data-toggle="dropdown" aria-expanded="false" className="p-0 btn btn-link dd-chart-btn">
-                          <span className="icon-wrapper icon-wrapper-alt rounded-circle">
-                              <span className="icon-wrapper-bg bg-success"></span>
-                              <i className="icon text-success ion-ios-analytics"></i>
-                          </span>
-                      </button>
-                      <div tabIndex="-1" role="menu" aria-hidden="true" className="dropdown-menu-xl rm-pointers dropdown-menu dropdown-menu-right">
-                            <div className="dropdown-menu-header">
-                              <div className="dropdown-menu-header-inner bg-premium-dark">
-                                  <div className="menu-header-image" style={{backgroundImage:"url('img/dropdown-header/abstract4.jpg')"}}></div>
-                                  <div className="menu-header-content text-white">
-                                      <h5 className="menu-header-title">Users Online</h5>
-                                      <h6 className="menu-header-subtitle">Recent Account Activity Overview</h6>
-                                  </div>
-                              </div>
-                            </div>
-                            <div className="widget-chart">
-                              <div className="widget-chart-content">
-                                  <div className="icon-wrapper rounded-circle">
-                                      <div className="icon-wrapper-bg opacity-9 bg-focus"></div>
-                                      <i className="lnr-users text-white"></i>
-                                  </div>
-                                  <div className="widget-numbers">
-                                      <span>344k</span>
-                                  </div>
-                                  <div className="widget-subheading pt-2">
-                                      Profile views since last login
-                                  </div>
-                                  <div className="widget-description text-danger">
-                                      <span className="pr-1"><span>176%</span></span>
-                                      <i className="fa fa-arrow-left"></i>
-                                  </div>
-                              </div>
-                              <div className="widget-chart-wrapper">
-                                  <div id="dashboard-sparkline-carousel-3-pop"></div>
-                              </div>
-                            </div>
-                            <ul className="nav flex-column">
-                                <li className="nav-item-divider mt-0 nav-item"></li>
-                                <li className="nav-item-btn text-center nav-item">
-                                    <button className="btn-shine btn-wide btn-pill btn btn-warning btn-sm">
-                                      <i className="fa fa-cog fa-spin mr-2"></i>View Details
-                                    </button>
                                 </li>
                             </ul>
                         </div>
