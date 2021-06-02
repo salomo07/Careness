@@ -16,7 +16,7 @@ function Dasboard(props) {
             <Header/>
             <Settings/>
             <Main />
-            <div className="modal fade" id="loginModal" tabIndex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div className="modal fade" id="loginModal" tabIndex="-1" role="dialog" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -65,7 +65,7 @@ function Dasboard(props) {
                     </div>
                 </div>
             </div>
-            <div className="modal fade" id="detailModal" tabIndex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div className="modal fade" id="detailModal" tabIndex="-1" role="dialog" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -109,7 +109,7 @@ function Dasboard(props) {
                     </div>
                 </div>
             </div>
-            <div className="modal fade" id="addModal" tabIndex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div className="modal fade" id="addModal" tabIndex="-1" role="dialog" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
                         <div className="modal-header">

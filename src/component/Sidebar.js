@@ -1,14 +1,19 @@
 import React,{useEffect,useState,useCallback,useContext} from 'react';
 import {Link} from "react-router-dom";
-import BlockUI from '../component/BlockUI'
-var $ =window.$;
-function Sidebar(props) {
-    var [detail, setDetail] = useState();
-    useEffect(()=>{
+import {AppContext} from '../AppContext';
+import CouchDB from '../CouchDB';
+import BlockUI from '../component/BlockUI';
 
+function Sidebar(props) {
+    var userdata=useContext(AppContext).userdata;
+    useEffect(()=>{
+      
+    });
+    useCallback(()=>{
+      console.log('Call');
     })
     return (
-    <div className="app-sidebar">
+    <div className="app-sidebar" style={{display:"none"}}>
       <div className="app-header__logo">
         <div className="logo-src" />
         <div className="header__pane ml-auto">

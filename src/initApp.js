@@ -4,13 +4,14 @@ var bcrypt = require('bcryptjs');
 var PouchDB= window.PouchDB;
 
 // console.log(process.env);
-var dbLocal = new PouchDB('careness', { skip_setup: true });
-var dbRemote = new PouchDB('http://localhost:5984/careness',{auth:{username:"admin","password":"123"}});
-dbRemote.changes({live: true,since:"now",include_docs:true}).on('change', function (change) {
-	console.log('Changes',change);
-}).on('error', function (err) {
-	console.log('error',err);
-});
+var dbLocal = new PouchDB('wms', { skip_setup: true });
+var dbRemote = new PouchDB('http://localhost:5984/wms',{auth:{username:"admin","password":"123"}});
+
+// dbRemote.changes({live: true,since:"now",include_docs:true}).on('change', function (change) {
+// 	console.log('Changes',change);
+// }).on('error', function (err) {
+// 	console.log('error',err);
+// });
 // var dbRemote = new PouchDB(process.env.REACT_APP_dbserver,{auth:{username:process.env.REACT_APP_dbusername,"password":process.env.REACT_APP_dbpassword}});
 var notifConfig={position: "top-right",autoClose: 3000,hideProgressBar: false,closeOnClick: true,pauseOnHover: true,draggable: true,progress: undefined};
 var urlScriptMap="https://maps.googleapis.com/maps/api/js?key="+process.env.REACT_APP_google_api_key1+"&callback=updatePosition&callback=initMap&libraries=places";

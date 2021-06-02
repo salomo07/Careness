@@ -1,17 +1,17 @@
 import React,{useState,useContext,useEffect,useCallback} from 'react';
 import {Link} from "react-router-dom";
 import {AppContext} from '../AppContext';
+import CouchDB from '../CouchDB';
 
 function Header() {
     var userdata=useContext(AppContext).userdata;
     var isLoggedIn=userdata!=null? true : false;
     var tryLogout=useContext(AppContext).tryLogout;
-
+    
     useEffect(()=>{
         if(userdata!=null)
-        {
-            document.getElementById("btnLogout").addEventListener("click", tryLogout);
-        }
+        {document.getElementById("btnLogout").addEventListener("click", tryLogout);}
+        
     })
     return (
     <div className="app-header header-shadow bg-arielle-smile header-text-light">
@@ -19,7 +19,7 @@ function Header() {
             <Link to="/"><div className="logo-src" ></div></Link>
             <div className="header__pane ml-auto">
                 <div>
-                  <button type="button" className="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                  <button type="button" style={{display:userdata==null?"none":""}}className="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
                     <span className="hamburger-box">
                       <span className="hamburger-inner" />
                     </span>
@@ -139,9 +139,8 @@ function Header() {
                                                         </div>
                                                         <div className="widget-content-left">
                                                             <div className="widget-heading"><center>{userdata.profile.firstname} {userdata.profile.lastname}</center></div>
-                                                            <div className="widget-subheading opacity-8"><center>{userdata.profile.role.map((role)=>{
-                                                                  return role +" ";
-                                                                })}</center></div>
+                                                            <div className="widget-subheading opacity-8"><center>
+                                                            {userdata.role.role}</center></div>
                                                         </div>
                                                         <div className="widget-content-right mr-2">
                                                             <div id="btnLogout"><button className="btn-pill btn-shadow btn-shine btn btn-focus">Logout</button></div>
@@ -211,7 +210,7 @@ function Header() {
                             <div className="widget-content-left  ml-3 header-user-info">
                                 <div className="widget-heading">{userdata.profile.firstname} {userdata.profile.lastname}</div>
                                 <div className="widget-subheading">
-                                <center>{userdata.profile.role.map((role)=>{return role +" ";})}</center></div>
+                                <center>{userdata.role.role}</center></div>
                             </div>
                         </div>
                     }
