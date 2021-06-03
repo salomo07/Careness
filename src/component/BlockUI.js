@@ -6,17 +6,17 @@ function BlockUI(props) {
       // {$.blockUI();}
     })
     return (
-    <div className="loader mx-auto">
+    <div className="loader">
         <div className="ball-grid-pulse">
-            <div className="bg-white" />
-            <div className="bg-white" />
-            <div className="bg-white" />
-            <div className="bg-white" />
-            <div className="bg-white" />
-            <div className="bg-white" />
-            <div className="bg-white" />
-            <div className="bg-white" />
-            <div className="bg-white" />
+          <div style={{backgroundColor: 'rgb(120, 195, 251)'}} />
+          <div style={{backgroundColor: 'rgb(120, 195, 251)'}} />
+          <div style={{backgroundColor: 'rgb(120, 195, 251)'}} />
+          <div style={{backgroundColor: 'rgb(120, 195, 251)'}} />
+          <div style={{backgroundColor: 'rgb(120, 195, 251)'}} />
+          <div style={{backgroundColor: 'rgb(120, 195, 251)'}} />
+          <div style={{backgroundColor: 'rgb(120, 195, 251)'}} />
+          <div style={{backgroundColor: 'rgb(120, 195, 251)'}} />
+          <div style={{backgroundColor: 'rgb(120, 195, 251)'}} />
         </div>
     </div>
   );

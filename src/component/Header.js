@@ -119,8 +119,7 @@ function Header() {
                 </div>
                 <div className="header-btn-lg pr-0">
                     <div className="widget-content p-0">
-                    {   // isLogin
-                        isLoggedIn &&
+                    {isLoggedIn &&
                         <div className="widget-content-wrapper" style={{cursor: 'pointer'}} data-toggle="dropdown">
                             <div className="widget-content-left">
                                 <a aria-haspopup="true" aria-expanded="false" className="p-0 btn">
@@ -130,24 +129,24 @@ function Header() {
                                 <div className="rm-pointers dropdown-menu-lg dropdown-menu dropdown-menu-right">
                                     <div className="dropdown-menu-header">
                                         <div className="dropdown-menu-header-inner bg-info">
-                                            <div className="menu-header-image opacity-2" style={{backgroundImage:"url('"+userdata.profile.fotowall+"')"}}></div>
-                                            <div className="menu-header-content text-left">
-                                                <div className="widget-content p-0">
-                                                    <div className="widget-content-wrapper">
-                                                        <div className="widget-content-left mr-3">
-                                                            <img width="62" height="62" className="rounded-circle" onError={(e) => {e.target.src="img/user.png"}} src={userdata.profile.foto} alt={userdata.profile.lastname}/>
-                                                        </div>
-                                                        <div className="widget-content-left">
-                                                            <div className="widget-heading"><center>{userdata.profile.firstname} {userdata.profile.lastname}</center></div>
-                                                            <div className="widget-subheading opacity-8"><center>
-                                                            {userdata.role.role}</center></div>
-                                                        </div>
-                                                        <div className="widget-content-right mr-2">
-                                                            <div id="btnLogout"><button className="btn-pill btn-shadow btn-shine btn btn-focus">Logout</button></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                          <div className="menu-header-image" style={{backgroundImage:"url('"+userdata.profile.fotowall+"')"}} />
+                                          <div className="menu-header-content">
+                                            <div className="avatar-icon-wrapper avatar-icon-lg">
+                                              <div className="avatar-icon rounded btn-hover-shine">
+                                                <img src={userdata.profile.foto} onError={(e)=>{e.target.src="img/user.png"}} alt="Avatar 5" />
+                                              </div>
                                             </div>
+                                            <div>
+                                              <h3 className="menu-header-title">{userdata.profile.firstname} {userdata.profile.lastname}</h3>
+                                              <h6 className="menu-header-subtitle">{userdata.role.role}</h6>
+                                            </div>
+                                            {/*<div className="menu-header-btn-pane">
+                                              <button className="mr-2 btn btn-info btn-sm">Settings</button>
+                                              <button className="btn-icon btn-icon-only btn btn-warning btn-sm">
+                                                <i className="pe-7s-config btn-icon-wrapper"> </i>
+                                              </button>
+                                            </div>*/}
+                                          </div>
                                         </div>
                                     </div>
                                     <div className="scroll-area-xs" style={{height:"150px"}}>
@@ -202,7 +201,8 @@ function Header() {
                                         <li className="nav-item-divider nav-item">
                                         </li>
                                         <li className="nav-item-btn text-center nav-item">
-                                            <button className="btn-wide btn btn-primary btn-sm"> Open Messages </button>
+                                            <div id="btnLogout"><button className="btn-pill btn-primary btn-shine btn btn-info">Logout</button>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>
