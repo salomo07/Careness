@@ -1,12 +1,22 @@
-import React,{useContext,useState} from 'react'
+import React,{useContext,useState,useEffect} from 'react'
 import {AppContext} from '../AppContext';
 
 import Header from'../component/Header';
+import Sidebar from'../component/Sidebar';
+import SlideShow from'../component/SlideShow';
+import Contact from'../component/Contact';
+import Mid from'../component/Mid';
+import Right from'../component/Right';
+import Footer from'../component/Footer';
+
+
 import Settings from'../component/Settings';
-import Main from'../component/Main';
+import CouchDB from '../CouchDB';
+
 
 function Dasboard(props) {
     var userdata=useContext(AppContext).userdata;
+
     var setUserdata=useContext(AppContext).setUserdata;
     var tryLogin=useContext(AppContext).tryLogin;
     var [isVisible,setVisible]=useState(false);
@@ -15,7 +25,29 @@ function Dasboard(props) {
         <div className="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
             <Header/>
             <Settings/>
-            <Main />
+            <Sidebar/>
+            <div className="app-main">
+                <div className="app-main__outer">
+                    <div className="app-main__inner">
+                        <div className="tabs-animation">
+                            <div className="row">
+                                <SlideShow/>
+                            </div>
+                            
+                            <div className="row"> 
+                                <div className="col-lg-3 col-lg-3 left-side" >
+                                    <Contact/>
+                                </div>                                        
+                                <Mid/>
+                                <div className="col-sm-12 col-lg-3 right-side">
+                                    <Right style={{display:true}}/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <Footer/>
+                </div>
+            </div>
             <div className="modal fade" id="loginModal" tabIndex="-1" role="dialog" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">

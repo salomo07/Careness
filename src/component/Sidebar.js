@@ -2,19 +2,47 @@ import React,{useEffect,useState,useCallback,useContext} from 'react';
 import {Link} from "react-router-dom";
 import {AppContext} from '../AppContext';
 import CouchDB from '../CouchDB';
-import BlockUI from '../component/BlockUI';
+function Menu(props) { 
+  var userdata=useContext(AppContext).userdata;console.log(userdata)
+  useEffect(()=>{
+    console.log(window.$('#metismenu').html());
+    window.$('#metismenu').metisMenu('dispose');
+    window.$('#metismenu').metisMenu();
+  })
+  return (
+  <ul className="vertical-nav-menu" id="metismenu">
+    <li className="app-sidebar__heading">Menu</li>
+    {userdata.menu1.map((val)=>{
+      var submenu=[];var html="";
+      var html=userdata.menu2.map((val2)=>{
+        if(val2.idmenu1==val._id){
+          submenu.push(val2);
+          return (<li key={val2._id}>
+            <Link to={val2.url}>
+              <i className={"metismenu-icon "+val2.class}/>{val2.label}
+            </Link>
+          </li>)
+        }
+      });
+      return <li key={val._id}>
+      <Link to={val.url}>
+        <i className={"metismenu-icon "+val.class} />{val.label}
+        {submenu.length>0 && <i className="metismenu-state-icon pe-7s-angle-down caret-left"/>}
+      </Link>
+      <ul>{html}</ul>
+      </li>
+    })}
+    </ul>
+    )
+}
 
 function Sidebar(props) {
     var userdata=useContext(AppContext).userdata;
-    useEffect(()=>{
-      console.log(userdata)
-    });
-    useCallback(()=>{
-      console.log('Call');
-    })
-    if(userdata ==null) return (<BlockUI/>);
+    var showSidebar=useContext(AppContext).showSidebar==false? "none":"";
     return (
-      <div className="app-sidebar" style={{display:"none"}}>
+      <>
+      {userdata !=undefined && 
+      <div className="app-sidebar">
         <div className="app-header__logo">
           <div className="logo-src" />
           <div className="header__pane ml-auto">
@@ -47,59 +75,12 @@ function Sidebar(props) {
         </div>    
         <div className="scrollbar-sidebar">
           <div className="app-sidebar__inner">
-            <ul className="vertical-nav-menu">
-              <li className="app-sidebar__heading">Menu</li>
-              <li>
-                <a href="#">
-                  <i className="metismenu-icon pe-7s-rocket" />Dashboards
-                  <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
-                </a>
-                <ul>
-                  <li>
-                    <a href="index.html">
-                      <i className="metismenu-icon" />Analytics
-                    </a>
-                  </li>
-                  <li>
-                    <a href="dashboards-commerce.html">
-                      <i className="metismenu-icon" />Commerce
-                    </a>
-                  </li>
-                  <li>
-                    <a href="dashboards-sales.html">
-                      <i className="metismenu-icon">
-                      </i>Sales
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="metismenu-icon" /> Minimal
-                      <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
-                    </a>
-                    <ul>
-                      <li>
-                        <a href="dashboards-minimal-1.html">
-                          <i className="metismenu-icon" />Variation 1
-                        </a>
-                      </li>
-                      <li>
-                        <a href="dashboards-minimal-2.html">
-                          <i className="metismenu-icon" />Variation 2
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="dashboards-crm.html">
-                      <i className="metismenu-icon" /> CRM
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            <Menu/>
           </div>
         </div>
       </div>
+      }
+      </>
     );
 }
 

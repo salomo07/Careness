@@ -9,20 +9,21 @@ function Contact(props) {
         if(pokemons==undefined)
         fetch("https://pokeapi.co/api/v2/pokemon?limit=10&offset=1").then(res => res.json()).then(
             (result) => {
-                console.log(result.results);setPokemons(result.results);
+              setPokemons(result.results);
             },
             (error) => {
               setPokemons([]);
             }
         )
     })
-    if(pokemons==null) return (<div className="main-card mb-3 card"><BlockUI/></div>);
     return (
     <div className="main-card mb-3 card">
       <div className="card-body" style={{height:'300px'}}>
         <h6 className="text-muted text-uppercase font-size-md opacity-7 mb-3 font-weight-normal">
           Pokémon List</h6>
-        <div className="border-light card-border scroll-area-sm card">
+        {!pokemons && <center><BlockUI/></center>}
+        {pokemons && <div className="border-light card-border scroll-area-sm card">
+          
           <div className="scrollbar-container">
             <ul className="list-group list-group-flush">
               { pokemons != undefined &&
@@ -40,7 +41,7 @@ function Contact(props) {
               }
             </ul>
           </div>
-        </div>
+        </div>}
       </div>
     </div>
   );

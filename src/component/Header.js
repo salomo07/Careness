@@ -5,13 +5,20 @@ import CouchDB from '../CouchDB';
 
 function Header() {
     var userdata=useContext(AppContext).userdata;
+    var [showSidebar,setShowSidebar]=useState(useContext(AppContext).showSidebar);
+    var setShowSidebar=useContext(AppContext).setShowSidebar;
     var isLoggedIn=userdata!=null? true : false;
     var tryLogout=useContext(AppContext).tryLogout;
-    
+    var showMenu=useCallback(()=>{
+        setShowSidebar(!showSidebar);console.log("ssss",showSidebar);
+        // (window.$(".app-sidebar").is(":hidden"))?window.$(".app-sidebar").show():window.$(".app-sidebar").hide();
+    })
     useEffect(()=>{
         if(userdata!=null)
-        {document.getElementById("btnLogout").addEventListener("click", tryLogout);}
-        
+        {
+            document.getElementById("btnLogout").addEventListener("click", tryLogout);
+            document.getElementById("btnShowMenu").addEventListener("click", showMenu);
+        }
     })
     return (
     <div className="app-header header-shadow bg-arielle-smile header-text-light">
@@ -19,7 +26,7 @@ function Header() {
             <Link to="/"><div className="logo-src" ></div></Link>
             <div className="header__pane ml-auto">
                 <div>
-                  <button type="button" style={{display:userdata==null?"none":""}}className="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                  <button id="btnShowMenu" type="button" style={{display:userdata==null?"none":""}}className="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
                     <span className="hamburger-box">
                       <span className="hamburger-inner" />
                     </span>
@@ -123,7 +130,7 @@ function Header() {
                         <div className="widget-content-wrapper" style={{cursor: 'pointer'}} data-toggle="dropdown">
                             <div className="widget-content-left">
                                 <a aria-haspopup="true" aria-expanded="false" className="p-0 btn">
-                                    <img width="42" height="42" onError={(e)=>{e.target.src="img/user.png"}} className="rounded-circle" src={userdata.profile.foto} alt=""/>
+                                    <img width="42" height="42" onError={(e)=>{e.target.src="/img/user.png"}} className="rounded-circle" src={userdata.profile.foto} alt=""/>
                                     <i className="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
                                 <div className="rm-pointers dropdown-menu-lg dropdown-menu dropdown-menu-right">
@@ -133,19 +140,14 @@ function Header() {
                                           <div className="menu-header-content">
                                             <div className="avatar-icon-wrapper avatar-icon-lg">
                                               <div className="avatar-icon rounded btn-hover-shine">
-                                                <img src={userdata.profile.foto} onError={(e)=>{e.target.src="img/user.png"}} alt="Avatar 5" />
+                                                <img src={userdata.profile.foto} onError={(e)=>{e.target.src="/img/user.png"}} alt="Avatar 5" />
                                               </div>
                                             </div>
                                             <div>
+                                            
                                               <h3 className="menu-header-title">{userdata.profile.firstname} {userdata.profile.lastname}</h3>
                                               <h6 className="menu-header-subtitle">{userdata.role.role}</h6>
                                             </div>
-                                            {/*<div className="menu-header-btn-pane">
-                                              <button className="mr-2 btn btn-info btn-sm">Settings</button>
-                                              <button className="btn-icon btn-icon-only btn btn-warning btn-sm">
-                                                <i className="pe-7s-config btn-icon-wrapper"> </i>
-                                              </button>
-                                            </div>*/}
                                           </div>
                                         </div>
                                     </div>

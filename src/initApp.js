@@ -1,8 +1,8 @@
-import { ToastContainer,toast} from 'react-toastify';
+import {ToastContainer,toast} from 'react-toastify';
 var bcrypt = require('bcryptjs');
 
 var PouchDB= window.PouchDB;
-
+// console.log(window)
 // console.log(process.env);
 var dbLocal = new PouchDB('wms', { skip_setup: true });
 var dbRemote = new PouchDB('http://localhost:5984/wms',{auth:{username:"admin","password":"123"}});

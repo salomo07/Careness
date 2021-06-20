@@ -1,5 +1,5 @@
 {
-  "name": "careness",
+  "name": "wms",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -27,7 +27,8 @@
     "react-toastify": "^6.0.8",
     "reactjs-tag-input": "^2.0.15",
     "redux": "^4.0.5",
-    "toastr": "^2.1.4"
+    "toastr": "^2.1.4",
+    "xlsx": "^0.17.0"
   },
   "scripts": {
     "start2": "nodemon node.js",

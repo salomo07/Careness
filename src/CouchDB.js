@@ -1,7 +1,6 @@
 var {dbLocal,dbRemote,toast}=require ("./initApp.js");
 
 class CouchDB {
-
 	connecting(){
 		return dbRemote.info().then(function (result) {
 			console.log("Online DB");return dbRemote;
@@ -49,24 +48,15 @@ class CouchDB {
 
 	    dbConnection.find(request).then(function (res) {
 		  callback(res,null);
-		}).catch(function (err) {
+		}).catch(function (err) {console.log(err)
 		  callback(null,err);toast.error("Fail finding data from database");
 		});
 	}
 	async query(ddocname,key,callback)
 	{
 		var dbConnection=await this.connecting();
-		console.log(key);
-	 //    dbConnection.query(map,{include_docs : true}).then(function (res) {
-		//   callback(res,null); console.log(res)
-		// }).catch(function (err) {
-		//   callback(null,err);toast.error("Fail running query/map data from database");
-		// });
-		// dbConnection.allDocs({include_docs: true,startkey:'Salomo07'},(res,err)=>{
-		// 	console.log(res,err);
-		// });
 		dbConnection.query(ddocname,{key:key.toString(),'include_docs': true}).then(function (res) {
-		  callback(res,null); console.log(res)
+		  callback(res,null);
 		}).catch(function (err) {
 		  callback(null,err);toast.error("Fail running query/map data from database");
 		});
