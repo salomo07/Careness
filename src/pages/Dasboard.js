@@ -25,7 +25,7 @@ function Dasboard(props) {
         <div className="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
             <Header/>
             <Settings/>
-            <Sidebar/>
+
             <div className="app-main">
                 <div className="app-main__outer">
                     <div className="app-main__inner">

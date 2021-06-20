@@ -11,6 +11,7 @@ import Footer from'../component/Footer';
 
 
 import Settings from'../component/Settings';
+import CouchDB from '../CouchDB';
 
 
 function Dasboard(props) {
@@ -24,18 +25,17 @@ function Dasboard(props) {
         <div className="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
             <Header/>
             <Settings/>
-            <Sidebar/>
             <div className="app-main">
                 <div className="app-main__outer">
                     <div className="app-main__inner">
                         <div className="tabs-animation">
                             <div className="row">
-                                
+
                             </div>
                             
                             <div className="row"> 
                                 <div className="col-lg-3 col-lg-3 left-side" >
-                                    <Contact/>
+
                                 </div>                                        
                                 <Mid/>
                                 <div className="col-sm-12 col-lg-3 right-side">

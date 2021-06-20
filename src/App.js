@@ -1,6 +1,5 @@
 import React,{useState,useCallback,useEffect} from 'react';
 import {Route, BrowserRouter as Router,Switch,Redirect} from "react-router-dom";
-import {useHistory} from "react-router-dom";
 import {AppContext} from './AppContext';
 
 import Dasboard from'./pages/Dasboard';
@@ -25,7 +24,6 @@ var dataSaved=JSON.parse(window.localStorage.getItem("userdata"));
 var App=() => {
     var user;
     var [userdata, setUserdata] = useState(dataSaved);
-    var [showSidebar, setShowSidebar] = useState(true);
 
     var tryLogin=useCallback((username,password)=>{
         new CouchDB().query('userdata/user-view',username,(res,err)=>{
@@ -63,7 +61,7 @@ var App=() => {
 
     return (
     	<Router basename="/">
-            <AppContext.Provider value={{userdata:userdata,setUserdata:setUserdata,showSidebar:showSidebar,setShowSidebar:setShowSidebar,tryLogin:tryLogin,tryLogout:tryLogout}}>
+            <AppContext.Provider value={{userdata:userdata,setUserdata:setUserdata,tryLogin:tryLogin,tryLogout:tryLogout}}>
     	      	<Switch>
     	        	<Route exact path="/">               
                         <Dasboard/>

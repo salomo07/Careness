@@ -1,32 +1,33 @@
 import React,{useState,useContext,useEffect,useCallback} from 'react';
 import {Link} from "react-router-dom";
 import {AppContext} from '../AppContext';
-import CouchDB from '../CouchDB';
 
+import Sidebar from'../component/Sidebar';
 function Header() {
     var userdata=useContext(AppContext).userdata;
-    var [showSidebar,setShowSidebar]=useState(useContext(AppContext).showSidebar);
-    var setShowSidebar=useContext(AppContext).setShowSidebar;
     var isLoggedIn=userdata!=null? true : false;
     var tryLogout=useContext(AppContext).tryLogout;
+    var [showSidebar,setShowSideBar]=useState(false);
     var showMenu=useCallback(()=>{
-        setShowSidebar(!showSidebar);console.log("ssss",showSidebar);
-        // (window.$(".app-sidebar").is(":hidden"))?window.$(".app-sidebar").show():window.$(".app-sidebar").hide();
+        console.log(showSidebar);
+        // console.log($(".app-sidebar").is(":hidden"));
+        // (!$(".app-sidebar").is(":hidden"))?$(".app-sidebar").show():$(".app-sidebar").hide();
+        setShowSideBar(!showSidebar);
     })
     useEffect(()=>{
         if(userdata!=null)
         {
             document.getElementById("btnLogout").addEventListener("click", tryLogout);
-            document.getElementById("btnShowMenu").addEventListener("click", showMenu);
         }
     })
     return (
+    <>
     <div className="app-header header-shadow bg-arielle-smile header-text-light">
         <div className="app-header__logo">
             <Link to="/"><div className="logo-src" ></div></Link>
             <div className="header__pane ml-auto">
                 <div>
-                  <button id="btnShowMenu" type="button" style={{display:userdata==null?"none":""}}className="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                  <button id="btnShowMenu" type="button" onClick={showMenu} style={{display:userdata==null?"none":""}} className="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
                     <span className="hamburger-box">
                       <span className="hamburger-inner" />
                     </span>
@@ -241,7 +242,9 @@ function Header() {
                 </div>        
             </div>
         </div>        
-    </div> 
+    </div>
+    <Sidebar showSidebar={showSidebar}/>
+    </> 
   );
 }
 

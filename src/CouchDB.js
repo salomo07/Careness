@@ -25,9 +25,7 @@ class CouchDB {
             if (!err) 
             {callback(res,null)}
             else
-            {
-            	toast.error("Fail putting data to database");
-            }
+            {toast.error("Fail putting data to database");}
         });
 	}
 	async get(key,callback)
@@ -37,9 +35,7 @@ class CouchDB {
 	        if(err==null)
 	        {callback(res,null)}
 	        else
-	        {
-	        	toast.error("Fail getting data from database");
-	        }
+	        {toast.error("Fail getting data from database");}
 	    })
 	}
 	async find(request,callback)
